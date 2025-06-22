@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Search, Filter, Clock, DollarSign, Users, ExternalLink, Zap } from "lucide-react";
+import { Search, Filter, Clock, DollarSign, Users, ExternalLink, Zap, Leaf, Wind } from "lucide-react";
 
 export const BountyBoard = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -15,80 +15,80 @@ export const BountyBoard = () => {
   const bounties = [
     {
       id: 1,
-      title: "Smart Contract Security Audit",
-      description: "Perform a comprehensive security audit of our DeFi protocol smart contracts. Identify vulnerabilities and provide detailed recommendations.",
-      reward: "$3,200",
+      title: "Chakra Network Security Audit",
+      description: "Perform a comprehensive security audit of our village's chakra network protocols. Identify vulnerabilities and provide detailed recommendations.",
+      reward: "3,200 Ryō",
       submissions: 5,
       timeLeft: "8 days",
       category: "Security",
-      difficulty: "Advanced",
+      difficulty: "S-Rank",
       aiValidation: true,
-      tags: ["Solidity", "Security", "DeFi"]
+      tags: ["Chakra", "Security", "Network"]
     },
     {
       id: 2,
-      title: "React Frontend for NFT Marketplace",
-      description: "Build a responsive React frontend for an NFT marketplace with wallet integration, search, and filtering capabilities.",
-      reward: "$2,100",
+      title: "Ninja Tools Marketplace Interface",
+      description: "Build a responsive interface for a ninja tools marketplace with wallet integration, search, and filtering capabilities.",
+      reward: "2,100 Ryō",
       submissions: 12,
       timeLeft: "6 days",
       category: "Frontend",
-      difficulty: "Intermediate",
+      difficulty: "A-Rank",
       aiValidation: true,
-      tags: ["React", "Web3", "NFT"]
+      tags: ["React", "Web3", "Marketplace"]
     },
     {
       id: 3,
-      title: "API Documentation Overhaul",
-      description: "Rewrite and improve existing API documentation with better examples, clear explanations, and interactive demos.",
-      reward: "$800",
+      title: "Village Protocol Documentation",
+      description: "Rewrite and improve existing village protocol documentation with better examples, clear explanations, and interactive demos.",
+      reward: "800 Ryō",
       submissions: 18,
       timeLeft: "4 days",
       category: "Documentation",
-      difficulty: "Beginner",
+      difficulty: "C-Rank",
       aiValidation: false,
-      tags: ["Documentation", "API", "Technical Writing"]
+      tags: ["Documentation", "Protocol", "Writing"]
     },
     {
       id: 4,
-      title: "Machine Learning Model Optimization",
-      description: "Optimize existing ML model for better performance and accuracy. Reduce inference time while maintaining quality.",
-      reward: "$2,800",
+      title: "Jutsu Recognition AI Model",
+      description: "Optimize existing jutsu recognition model for better performance and accuracy. Reduce inference time while maintaining quality.",
+      reward: "2,800 Ryō",
       submissions: 7,
       timeLeft: "10 days",
       category: "AI/ML",
-      difficulty: "Advanced",
+      difficulty: "S-Rank",
       aiValidation: true,
-      tags: ["Python", "TensorFlow", "Optimization"]
+      tags: ["AI", "Machine Learning", "Jutsu"]
     },
     {
       id: 5,
-      title: "Mobile App UI/UX Design",
-      description: "Design a modern, intuitive UI/UX for a crypto wallet mobile app. Include wireframes, mockups, and interactive prototypes.",
-      reward: "$1,500",
+      title: "Mobile Mission Tracker Design",
+      description: "Design a modern, intuitive UI/UX for a mobile mission tracker app. Include wireframes, mockups, and interactive prototypes.",
+      reward: "1,500 Ryō",
       submissions: 9,
       timeLeft: "5 days",
       category: "Design",
-      difficulty: "Intermediate",
+      difficulty: "B-Rank",
       aiValidation: false,
-      tags: ["UI/UX", "Mobile", "Figma"]
+      tags: ["UI/UX", "Mobile", "Design"]
     },
     {
       id: 6,
-      title: "Blockchain Data Analysis Script",
-      description: "Create Python scripts to analyze blockchain transaction patterns and generate insights for our research team.",
-      reward: "$1,200",
+      title: "Village Transaction Analysis",
+      description: "Create analysis scripts to examine village transaction patterns and generate insights for the council.",
+      reward: "1,200 Ryō",
       submissions: 14,
       timeLeft: "7 days",
       category: "Backend",
-      difficulty: "Intermediate",
+      difficulty: "A-Rank",
       aiValidation: true,
-      tags: ["Python", "Blockchain", "Data Analysis"]
+      tags: ["Analytics", "Blockchain", "Data"]
     }
   ];
 
   const categories = ["all", "Security", "Frontend", "Backend", "Design", "Documentation", "AI/ML"];
-  const difficulties = ["all", "Beginner", "Intermediate", "Advanced"];
+  const difficulties = ["all", "C-Rank", "B-Rank", "A-Rank", "S-Rank"];
 
   const filteredBounties = bounties.filter(bounty => {
     const matchesSearch = bounty.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -104,34 +104,42 @@ export const BountyBoard = () => {
     <section className="py-16 px-6" id="bounties">
       <div className="container mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-white mb-4">Bounty Board</h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Discover opportunities, submit solutions, and earn rewards with AI-powered validation
+          <div className="flex items-center justify-center mb-4">
+            <Wind className="w-6 h-6 text-green-400 mr-3 animate-pulse" />
+            <h2 className="text-4xl font-bold text-white">Mission Board</h2>
+            <Leaf className="w-6 h-6 text-orange-400 ml-3 animate-bounce" />
+          </div>
+          <p className="text-green-200 text-lg max-w-2xl mx-auto">
+            Discover ninja missions, submit solutions, and earn rewards with AI-powered validation
           </p>
         </div>
 
         {/* Filters */}
-        <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 mb-8">
-          <div className="flex flex-col lg:flex-row gap-4 items-center">
+        <div className="bg-green-800/20 backdrop-blur-sm border border-green-600/30 rounded-2xl p-6 mb-8 relative overflow-hidden">
+          {/* Decorative elements */}
+          <div className="absolute top-4 right-4 text-green-400/20 text-xl">🍃</div>
+          <div className="absolute bottom-4 left-4 text-orange-400/20 text-lg">🍂</div>
+          
+          <div className="flex flex-col lg:flex-row gap-4 items-center relative z-10">
             {/* Search */}
             <div className="relative flex-1">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-green-300 w-5 h-5" />
               <Input
-                placeholder="Search bounties, skills, or keywords..."
+                placeholder="Search missions, skills, or keywords..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="pl-10 bg-white/5 border-white/10 text-white placeholder-gray-400 focus:border-purple-500/50"
+                className="pl-10 bg-green-900/20 border-green-600/30 text-white placeholder-green-300 focus:border-orange-500/50 backdrop-blur-sm"
               />
             </div>
 
             {/* Category Filter */}
             <Select value={selectedCategory} onValueChange={setSelectedCategory}>
-              <SelectTrigger className="w-full lg:w-48 bg-white/5 border-white/10 text-white">
+              <SelectTrigger className="w-full lg:w-48 bg-green-900/20 border-green-600/30 text-white backdrop-blur-sm">
                 <SelectValue placeholder="Category" />
               </SelectTrigger>
-              <SelectContent className="bg-slate-800 border-white/10">
+              <SelectContent className="bg-green-900 border-green-600/30 backdrop-blur-xl">
                 {categories.map(category => (
-                  <SelectItem key={category} value={category} className="text-white hover:bg-white/10">
+                  <SelectItem key={category} value={category} className="text-white hover:bg-green-800/50 focus:bg-green-800/50">
                     {category === "all" ? "All Categories" : category}
                   </SelectItem>
                 ))}
@@ -140,20 +148,20 @@ export const BountyBoard = () => {
 
             {/* Difficulty Filter */}
             <Select value={selectedDifficulty} onValueChange={setSelectedDifficulty}>
-              <SelectTrigger className="w-full lg:w-48 bg-white/5 border-white/10 text-white">
+              <SelectTrigger className="w-full lg:w-48 bg-green-900/20 border-green-600/30 text-white backdrop-blur-sm">
                 <SelectValue placeholder="Difficulty" />
               </SelectTrigger>
-              <SelectContent className="bg-slate-800 border-white/10">
+              <SelectContent className="bg-green-900 border-green-600/30 backdrop-blur-xl">
                 {difficulties.map(difficulty => (
-                  <SelectItem key={difficulty} value={difficulty} className="text-white hover:bg-white/10">
-                    {difficulty === "all" ? "All Levels" : difficulty}
+                  <SelectItem key={difficulty} value={difficulty} className="text-white hover:bg-green-800/50 focus:bg-green-800/50">
+                    {difficulty === "all" ? "All Ranks" : difficulty}
                   </SelectItem>
                 ))}
               </SelectContent>
             </Select>
 
             {/* Filter Button */}
-            <Button variant="outline" className="border-purple-500/50 text-purple-300 hover:bg-purple-500/10">
+            <Button variant="outline" className="border-orange-500/50 text-orange-300 hover:bg-orange-500/10 backdrop-blur-sm">
               <Filter className="w-4 h-4 mr-2" />
               More Filters
             </Button>
@@ -165,42 +173,48 @@ export const BountyBoard = () => {
           {filteredBounties.map((bounty) => (
             <Card
               key={bounty.id}
-              className="bg-white/5 backdrop-blur-sm border border-white/10 hover:border-purple-500/50 transition-all duration-300 group cursor-pointer"
+              className="bg-green-800/20 backdrop-blur-sm border border-green-600/30 hover:border-orange-500/50 transition-all duration-300 group cursor-pointer relative overflow-hidden"
             >
-              <div className="p-6">
+              {/* Leaf decorations */}
+              <div className="absolute top-3 right-3 text-green-400/20 text-lg">🍃</div>
+              <div className="absolute bottom-3 left-3 text-orange-400/20 text-sm">🍂</div>
+              
+              <div className="p-6 relative z-10">
                 {/* Header */}
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex gap-2 flex-wrap">
                     <Badge
                       variant="secondary"
                       className={`${
-                        bounty.difficulty === "Advanced"
+                        bounty.difficulty === "S-Rank"
                           ? "bg-red-500/20 text-red-300 border-red-500/30"
-                          : bounty.difficulty === "Intermediate"
+                          : bounty.difficulty === "A-Rank"
+                          ? "bg-orange-500/20 text-orange-300 border-orange-500/30"
+                          : bounty.difficulty === "B-Rank"
                           ? "bg-yellow-500/20 text-yellow-300 border-yellow-500/30"
                           : "bg-green-500/20 text-green-300 border-green-500/30"
                       }`}
                     >
                       {bounty.difficulty}
                     </Badge>
-                    <Badge className="bg-blue-500/20 text-blue-300 border-blue-500/30">
+                    <Badge className="bg-amber-500/20 text-amber-300 border-amber-500/30">
                       {bounty.category}
                     </Badge>
                   </div>
                   {bounty.aiValidation && (
-                    <div className="flex items-center bg-gradient-to-r from-purple-500/20 to-cyan-500/20 rounded-full px-2 py-1">
-                      <Zap className="w-3 h-3 text-purple-400 mr-1" />
-                      <span className="text-purple-400 text-xs font-medium">AI Validated</span>
+                    <div className="flex items-center bg-gradient-to-r from-orange-500/20 to-red-500/20 rounded-full px-2 py-1 border border-orange-400/20">
+                      <Zap className="w-3 h-3 text-orange-400 mr-1" />
+                      <span className="text-orange-400 text-xs font-medium">AI Validated</span>
                     </div>
                   )}
                 </div>
 
                 {/* Content */}
-                <h3 className="text-xl font-bold text-white mb-3 group-hover:text-purple-300 transition-colors">
+                <h3 className="text-xl font-bold text-white mb-3 group-hover:text-orange-300 transition-colors">
                   {bounty.title}
                 </h3>
                 
-                <p className="text-gray-400 text-sm mb-4 line-clamp-2">
+                <p className="text-green-200 text-sm mb-4 line-clamp-2">
                   {bounty.description}
                 </p>
 
@@ -209,7 +223,7 @@ export const BountyBoard = () => {
                   {bounty.tags.map((tag, index) => (
                     <span
                       key={index}
-                      className="text-xs bg-white/5 text-gray-300 px-2 py-1 rounded-full border border-white/10"
+                      className="text-xs bg-green-900/20 text-green-300 px-2 py-1 rounded-full border border-green-600/30"
                     >
                       {tag}
                     </span>
@@ -222,7 +236,7 @@ export const BountyBoard = () => {
                     <DollarSign className="w-4 h-4 mr-1" />
                     {bounty.reward}
                   </div>
-                  <div className="flex items-center text-blue-400">
+                  <div className="flex items-center text-amber-400">
                     <Users className="w-4 h-4 mr-1" />
                     {bounty.submissions} submissions
                   </div>
@@ -234,10 +248,10 @@ export const BountyBoard = () => {
 
                 {/* Actions */}
                 <div className="flex gap-3">
-                  <Button className="flex-1 bg-gradient-to-r from-purple-600 to-cyan-600 hover:from-purple-700 hover:to-cyan-700 text-white transition-all duration-200">
-                    Submit Solution
+                  <Button className="flex-1 bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-700 hover:to-red-700 text-white transition-all duration-200 shadow-lg">
+                    Accept Mission
                   </Button>
-                  <Button variant="outline" size="icon" className="border-white/10 text-gray-300 hover:bg-white/5">
+                  <Button variant="outline" size="icon" className="border-green-600/30 text-green-300 hover:bg-green-800/30">
                     <ExternalLink className="w-4 h-4" />
                   </Button>
                 </div>
@@ -251,9 +265,9 @@ export const BountyBoard = () => {
           <Button
             variant="outline"
             size="lg"
-            className="border-purple-500/50 text-purple-300 hover:bg-purple-500/10 px-8 py-3 rounded-xl"
+            className="border-green-500/50 text-green-300 hover:bg-green-500/10 px-8 py-3 rounded-xl backdrop-blur-sm"
           >
-            Load More Bounties
+            Load More Missions
           </Button>
         </div>
       </div>
