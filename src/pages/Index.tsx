@@ -11,42 +11,44 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 relative overflow-hidden">
-      <div className="relative">
-        {/* Enhanced geometric pattern background */}
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width=%2260%22%20height=%2260%22%20viewBox=%220%200%2060%2060%22%20xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cg%20fill=%22none%22%20fill-rule=%22evenodd%22%3E%3Cg%20fill=%22%23059669%22%20fill-opacity=%220.04%22%3E%3Ccircle%20cx=%2230%22%20cy=%2230%22%20r=%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-60"></div>
+      {/* Enhanced grid background pattern */}
+      <div className="absolute inset-0 opacity-30">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:4rem_4rem]"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_500px_at_50%_200px,#3b82f625,transparent)]"></div>
+      </div>
+
+      {/* Animated gradient orbs */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        {/* Large gradient orbs */}
+        <div className="absolute top-0 -left-4 w-72 h-72 bg-gradient-to-r from-emerald-500/20 to-teal-500/20 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
+        <div className="absolute top-0 -right-4 w-72 h-72 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
+        <div className="absolute -bottom-8 left-20 w-72 h-72 bg-gradient-to-r from-yellow-500/20 to-orange-500/20 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
         
-        {/* Anime-inspired energy effects */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          {/* Energy orbs flowing across screen */}
-          <div className="energy-orb top-20"></div>
-          <div className="energy-orb top-40"></div>
-          <div className="energy-orb top-60"></div>
-          <div className="energy-orb top-80"></div>
-          
-          {/* Chakra-like spinning elements */}
-          <div className="chakra-element animate-[float_12s_ease-in-out_infinite] absolute top-32 left-1/4 text-emerald-500/20 text-2xl">◉</div>
-          <div className="chakra-element animate-[float_15s_ease-in-out_infinite_2s] absolute top-48 right-1/3 text-orange-500/20 text-xl">⬟</div>
-          <div className="chakra-element animate-[float_10s_ease-in-out_infinite_1s] absolute top-96 left-1/2 text-purple-500/20 text-2xl">◈</div>
-          <div className="chakra-element animate-[float_18s_ease-in-out_infinite_3s] absolute bottom-60 right-1/4 text-pink-500/20 text-xl">◊</div>
-          <div className="chakra-element animate-[float_14s_ease-in-out_infinite_4s] absolute bottom-80 left-1/3 text-blue-500/20 text-lg">◉</div>
-          
-          {/* Additional floating elements with different animations */}
-          <div className="animate-[float_8s_ease-in-out_infinite] absolute top-20 left-1/6 text-emerald-400/15 text-lg">✧</div>
-          <div className="animate-[float_11s_ease-in-out_infinite_1.5s] absolute top-72 right-1/5 text-orange-400/15 text-md">⟡</div>
-          <div className="animate-[float_13s_ease-in-out_infinite_2.5s] absolute bottom-40 left-3/4 text-teal-400/15 text-xl">◆</div>
-          
-          {/* Large background glow effects */}
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-emerald-500/5 to-teal-500/5 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-r from-orange-500/5 to-red-500/5 rounded-full blur-3xl animate-pulse delay-1000"></div>
-          <div className="absolute top-1/2 right-1/3 w-64 h-64 bg-gradient-to-r from-purple-500/5 to-pink-500/5 rounded-full blur-3xl animate-pulse delay-500"></div>
+        {/* Floating elements with anime-inspired shapes */}
+        <div className="absolute top-32 left-1/4 animate-float-slow">
+          <div className="w-4 h-4 bg-gradient-to-br from-emerald-400/30 to-emerald-600/30 rounded-full shadow-lg"></div>
         </div>
-        
+        <div className="absolute top-48 right-1/3 animate-float-medium">
+          <div className="w-3 h-3 bg-gradient-to-br from-orange-400/30 to-red-500/30 transform rotate-45 shadow-lg"></div>
+        </div>
+        <div className="absolute top-96 left-1/2 animate-float-fast">
+          <div className="w-5 h-5 bg-gradient-to-br from-purple-400/30 to-purple-600/30 rounded-full shadow-lg"></div>
+        </div>
+        <div className="absolute bottom-60 right-1/4 animate-float-slow">
+          <div className="w-4 h-4 bg-gradient-to-br from-pink-400/30 to-pink-600/30 transform rotate-12 shadow-lg"></div>
+        </div>
+        <div className="absolute bottom-80 left-1/3 animate-float-medium">
+          <div className="w-3 h-3 bg-gradient-to-br from-blue-400/30 to-blue-600/30 rounded-full shadow-lg"></div>
+        </div>
+      </div>
+      
+      <div className="relative z-10">
         <Header 
           isWalletConnected={isWalletConnected} 
           setIsWalletConnected={setIsWalletConnected} 
         />
         
-        <main className="relative z-10">
+        <main>
           <HeroSection />
           <StatsSection />
           <FeaturedBounties />
