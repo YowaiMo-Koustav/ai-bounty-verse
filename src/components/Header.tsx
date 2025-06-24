@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Wallet, Bell, User, Menu, Zap } from "lucide-react";
 import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 interface HeaderProps {
   isWalletConnected: boolean;
@@ -11,17 +12,20 @@ interface HeaderProps {
 
 export const Header = ({ isWalletConnected, setIsWalletConnected }: HeaderProps) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
   const handleWalletConnect = () => {
     setIsWalletConnected(!isWalletConnected);
   };
+
+  const isActive = (path: string) => location.pathname === path;
 
   return (
     <header className="relative z-50 backdrop-blur-xl bg-gray-900/40 border-b border-gray-700/20">
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center space-x-3">
+          <Link to="/" className="flex items-center space-x-3">
             <div className="w-10 h-10 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-xl flex items-center justify-center relative shadow-lg">
               <Zap className="w-6 h-6 text-white" />
               <div className="absolute -top-1 -right-1 w-3 h-3 bg-orange-500 rounded-full animate-pulse"></div>
@@ -30,22 +34,42 @@ export const Header = ({ isWalletConnected, setIsWalletConnected }: HeaderProps)
               <h1 className="text-white text-xl font-bold tracking-tight">AgentVerse</h1>
               <p className="text-emerald-300 text-xs font-medium">Autonomous AI Bounty Platform</p>
             </div>
-          </div>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <a href="#bounties" className="text-gray-300 hover:text-white transition-colors font-medium">
+            <Link 
+              to="/" 
+              className={`transition-colors font-medium ${
+                isActive('/') ? 'text-emerald-300' : 'text-gray-300 hover:text-white'
+              }`}
+            >
               Browse Tasks
-            </a>
-            <a href="#create" className="text-gray-300 hover:text-white transition-colors font-medium">
+            </Link>
+            <Link 
+              to="/create" 
+              className={`transition-colors font-medium ${
+                isActive('/create') ? 'text-emerald-300' : 'text-gray-300 hover:text-white'
+              }`}
+            >
               Create Bounty
-            </a>
-            <a href="#agents" className="text-gray-300 hover:text-white transition-colors font-medium">
-              AI Agents
-            </a>
-            <a href="#dashboard" className="text-gray-300 hover:text-white transition-colors font-medium">
+            </Link>
+            <Link 
+              to="/dashboard" 
+              className={`transition-colors font-medium ${
+                isActive('/dashboard') ? 'text-emerald-300' : 'text-gray-300 hover:text-white'
+              }`}
+            >
               Dashboard
-            </a>
+            </Link>
+            <Link 
+              to="/profile" 
+              className={`transition-colors font-medium ${
+                isActive('/profile') ? 'text-emerald-300' : 'text-gray-300 hover:text-white'
+              }`}
+            >
+              Profile
+            </Link>
           </nav>
 
           {/* Right Section */}
@@ -90,18 +114,38 @@ export const Header = ({ isWalletConnected, setIsWalletConnected }: HeaderProps)
         {isMobileMenuOpen && (
           <div className="md:hidden mt-4 pb-4 border-t border-gray-700/30 pt-4">
             <nav className="flex flex-col space-y-3">
-              <a href="#bounties" className="text-gray-300 hover:text-white transition-colors font-medium">
+              <Link 
+                to="/" 
+                className={`transition-colors font-medium ${
+                  isActive('/') ? 'text-emerald-300' : 'text-gray-300 hover:text-white'
+                }`}
+              >
                 Browse Tasks
-              </a>
-              <a href="#create" className="text-gray-300 hover:text-white transition-colors font-medium">
+              </Link>
+              <Link 
+                to="/create" 
+                className={`transition-colors font-medium ${
+                  isActive('/create') ? 'text-emerald-300' : 'text-gray-300 hover:text-white'
+                }`}
+              >
                 Create Bounty
-              </a>
-              <a href="#agents" className="text-gray-300 hover:text-white transition-colors font-medium">
-                AI Agents
-              </a>
-              <a href="#dashboard" className="text-gray-300 hover:text-white transition-colors font-medium">
+              </Link>
+              <Link 
+                to="/dashboard" 
+                className={`transition-colors font-medium ${
+                  isActive('/dashboard') ? 'text-emerald-300' : 'text-gray-300 hover:text-white'
+                }`}
+              >
                 Dashboard
-              </a>
+              </Link>
+              <Link 
+                to="/profile" 
+                className={`transition-colors font-medium ${
+                  isActive('/profile') ? 'text-emerald-300' : 'text-gray-300 hover:text-white'
+                }`}
+              >
+                Profile
+              </Link>
             </nav>
           </div>
         )}
