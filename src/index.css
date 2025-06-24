@@ -96,15 +96,15 @@
   }
 }
 
-/* Enhanced animations for professional interface */
+/* Enhanced animations for professional interface with anime-inspired elements */
 @keyframes float {
   0%, 100% {
     transform: translateY(0px) rotate(0deg);
-    opacity: 0.3;
+    opacity: 0.4;
   }
   50% {
-    transform: translateY(-15px) rotate(180deg);
-    opacity: 0.1;
+    transform: translateY(-20px) rotate(180deg);
+    opacity: 0.2;
   }
 }
 
@@ -119,10 +119,10 @@
 
 @keyframes glow {
   0%, 100% {
-    box-shadow: 0 0 5px rgba(16, 185, 129, 0.2);
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.3);
   }
   50% {
-    box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
+    box-shadow: 0 0 30px rgba(16, 185, 129, 0.6);
   }
 }
 
@@ -135,15 +135,41 @@
   }
 }
 
+@keyframes energy-flow {
+  0% {
+    transform: translateX(-100%) translateY(0px);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100vw) translateY(-10px);
+    opacity: 0;
+  }
+}
+
+@keyframes chakra-spin {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.1);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
 .glass-effect {
-  background: rgba(255, 255, 255, 0.02);
+  background: rgba(15, 23, 42, 0.8);
   backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(148, 163, 184, 0.1);
 }
 
 .gradient-border {
   position: relative;
-  background: linear-gradient(to right, rgba(16, 185, 129, 0.1), rgba(245, 158, 11, 0.1));
+  background: linear-gradient(to right, rgba(16, 185, 129, 0.1), rgba(20, 184, 166, 0.1));
   border: 1px solid transparent;
 }
 
@@ -152,8 +178,93 @@
   position: absolute;
   inset: 0;
   padding: 1px;
-  background: linear-gradient(to right, #10b981, #f59e0b);
+  background: linear-gradient(to right, #10b981, #14b8a6);
   border-radius: inherit;
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask-composite: exclude;
+}
+
+/* Anime-inspired energy effects */
+.energy-orb {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.8), rgba(16, 185, 129, 0.2));
+  border-radius: 50%;
+  animation: energy-flow 8s linear infinite;
+}
+
+.energy-orb:nth-child(2) {
+  animation-delay: 2s;
+  background: radial-gradient(circle, rgba(249, 115, 22, 0.8), rgba(249, 115, 22, 0.2));
+}
+
+.energy-orb:nth-child(3) {
+  animation-delay: 4s;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.8), rgba(139, 92, 246, 0.2));
+}
+
+.energy-orb:nth-child(4) {
+  animation-delay: 6s;
+  background: radial-gradient(circle, rgba(236, 72, 153, 0.8), rgba(236, 72, 153, 0.2));
+}
+
+.chakra-element {
+  animation: chakra-spin 12s linear infinite;
+}
+
+.chakra-element:nth-child(odd) {
+  animation-direction: reverse;
+}
+
+/* Enhanced card hover effects */
+.card-hover-effect {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover-effect:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(16, 185, 129, 0.15);
+}
+
+/* Text effects inspired by anime UI */
+.text-glow {
+  text-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+}
+
+.text-shadow-strong {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+/* Line clamp utilities */
+.line-clamp-2 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.line-clamp-3 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(16, 185, 129, 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(16, 185, 129, 0.5);
 }
